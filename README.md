@@ -1,39 +1,50 @@
-!<img width="275" height="183" alt="image" src="https://github.com/user-attachments/assets/02e20d15-c383-4653-b0ae-aa9e0f7edb5d" />
+<img width="1280" height="480" alt="image" src="https://github.com/user-attachments/assets/5440cb62-250b-462e-b0e5-bd98d054eca7" />
 
 
-# 💼 LoanTap Credit Risk Modeling Project
+
+# 🚗 Ola Ensemble Learning  Project
 
 ## 📌 Introduction
 
-**LoanTap** is a digital lending platform that provides flexible loan products to salaried professionals. With the rise of fintech-driven credit solutions, underwriting accuracy becomes crucial to minimize default risk while ensuring timely loan disbursement. This project builds a predictive model to assess credit risk and assist LoanTap in making data-driven lending decisions.
+
+**Ola Cabs**, officially ANI Technologies, is an Indian multinational ride-hailing company founded in 2010 by Bhavish Aggarwal and Ankit Bhati. It operates a vast mobility platform that connects users with various transport options like cabs, auto-rickshaws, and bike taxis through its mobile app. Ola is one of India's largest mobility platforms and serves over 250 cities in India, Australia, New Zealand, and the UK. In addition to ride-hailing, Ola offers other services like food delivery and a financial services arm, providing a comprehensive range of mobility solutions. 
 
 ---
+## Context & Business Problem 
+Driver retention is a critical challenge for ride-hailing platforms like Ola. High churn rates among drivers lead to increased recruitment costs, loss of trained manpower, and disruptions in service quality. Drivers can easily switch platforms based on fluctuating incentives, making it imperative for Ola to proactively identify at-risk drivers and take preventive action.
+
+Ola’s Driver Operations and Analytics teams need to accurately predict which drivers are likely to leave the platform, enabling targeted interventions to improve retention. Currently, driver attrition not only increases operational costs due to frequent acquisition efforts but also negatively impacts organizational morale and customer satisfaction.
 
 ## 🧠 Project Overview
 
-The objective of this project is to develop a machine learning model that predicts whether a borrower is likely to **repay the loan (Fully Paid)** or **default (Charged Off)**. The model supports LoanTap’s credit risk team in automating and improving the efficiency of their underwriting process.
+To build a predictive model that can classify whether a driver is likely to leave or stay with Ola in a given month, using historical and demographic data.
 
 ---
 
-## 📊 Dataset
+## 📊Scope of Data:
 
-The dataset includes borrower-level and loan-level features such as:
+The dataset includes monthly information for a segment of drivers across 2019 and 2020. Key features include:
 
-- **Loan Amount**
-- **Annual Income**
-- **Interest Rate**
-- **EMI**
-- **Credit Score**
-- **Loan Tenure**
-- **Purpose of Loan**
-- **Employment Details**
-- **Repayment Status (Target Variable)**
+**Demographics**: City, age, gender, etc.
 
-**Target Variable:**
-- `Fully Paid` → 1  
-- `Charged Off` → 0  
+**Tenure Details**: Joining date, last working date, total tenure
 
-The dataset was imbalanced, with a majority of loans marked as “Fully Paid.”
+**Performance Metrics**: Quarterly ratings, monthly income, business acquired, driver grade
+
+---
+## Deliverables:
+
+A **binary classification model** that predicts driver attrition (Leave = 1, Stay = 0)
+
+**Feature importance analysis** to identify key drivers of attrition
+
+**Actionable insights** for the Driver Retention Team
+
+A **dashboard** or reporting mechanism (optional) for real-time monitoring
+
+
+## 🐱‍🏍Success Metric:
+The model will be evaluated using accuracy, precision, recall, F1-score, and ROC-AUC, with particular emphasis on minimizing false negatives (i.e., drivers likely to leave but not flagged).
 
 ---
 
@@ -66,47 +77,67 @@ Built multiple Logistic Regression models:
 
 ---
 
-## 📈 Results and Insights
+## 🤖 Modeling
 
-- **Best Model**: Logistic Regression with SMOTE + Class Weighting + Threshold Tuning
-- **Key Features Impacting Default Risk**:
-  - **Zip Code**(Geographical presence)
-  - High **EMI** relative to income
-  - Low **Credit Score**
-  - High **Interest Rate**
-  - Purpose categories like “Debt Consolidation” showed higher risk
-- **F1-score improved** significantly after addressing imbalance and threshold tuning.
+| Model             | Train Accuracy | Test Accuracy | Key Note                                         |
+| ----------------- | -------------: | ------------: | ------------------------------------------------ |
+| **Random Forest** |           1.00 |         0.916 | High accuracy; potential overfitting.            |
+| **XGBoost**       |           1.00 |     **0.918** | **Best performer** with strong recall/precision. |
+| **LightGBM**      |           1.00 |         0.890 | Good but slightly weaker generalization.         |
+| **CatBoost**      |          0.986 |         0.899 | Balanced fit; good generalization.               |
+
+- ROC–AUC: 0.95
+
+- F1 Score: Improved significantly after addressing class imbalance and threshold tuning.
+---
+
+## Best Model & Key Predictors
+
+**XGBoost** provided the best discrimination between churned and retained drivers.
+Important predictors include:
+
+- Income Raise
+
+- Grade & Total Business Value
+
+- Joining Designation
+
+- Quarterly Rating
+
+## Recommendations
+
+- **Retention Incentives**: Provide income raises or performance bonuses for at-risk drivers.
+
+- **Early Tenure Engagement**: Loyalty rewards for drivers in their first few years.
+
+- **Focus on High-Risk Designations**: Target designations 1–3 with coaching and benefits.
+
+- **Gender Balance Programs**: Recruit and support more female drivers.
 
 ---
 
-## ✅ Recommendations
+## 🛠️ Tech Stack
 
-- **Prioritize 36-Month Loan Terms**: Given the higher default rates on 60-month loans, encourage 36-month loans by offering slightly better terms (e.g., lower interest or processing fees) to reduce long-term risk exposure.
-- Implement regional risk scoring by incorporating pincode-level default trends. High-risk areas could be subjected to stricter eligibility or additional checks.
-Limit Loan Size in Risk Bands
-- Incorporate external credit bureau data for enhanced accuracy.
-- Regularly retrain the model to account for shifts in applicant behavior and economic conditions.
+- **Python**: pandas, NumPy, scikit-learn, XGBoost, LightGBM, CatBoost, matplotlib, seaborn
 
----
+- **EDA & Visualization**: Jupyter Notebook, Matplotlib, Seaborn
 
-## 🔭 Future Improvements
+- **Version Control**: Git & GitHub
 
-- Experiment with advanced models like **XGBoost**, **Random Forest**, and **LightGBM**.
-- Deploy the model using **Flask** or **Streamlit** to create an interactive loan approval dashboard.
-- Integrate explainability tools like **SHAP** or **LIME** for transparent decision-making.
-- Monitor model drift and performance using a feedback loop from live loan outcomes.
+## 📈 Business Impact
+
+Accurately predicting driver churn enables proactive retention, reduces recruitment costs, and ensures better customer service reliability.
 
 ---
-
 ## Colab Notebook
-- You can access the full Python analysis on Google Colab using the following link: [View the notebook](https://colab.research.google.com/drive/11MP_rUCVyKrtoH_NQa3tq6GFzMe9Xq8T#scrollTo=WTCNvu7F-D68)
+- You can access the full Python analysis on Google Colab using the following link: [View the notebook](https://colab.research.google.com/drive/1XypbEknLQUbftTx9AqG_8QaCwNIb4Qlj#scrollTo=KgbZk4DlkF0I)
 
 ## PDF Report
 
-A detailed analysis report is available in the following PDF file: [View Report](Loan_Tap.pdf).
+A detailed analysis report is available in the following PDF file: [View Report]().
 
-## Contact
-
+## 📬Contact
+For questions or collaboration, please reach out via
 [SYED ZAHEER ABBAS] - [SYEDZAHEER.C@GMAIL.COM]
 
 
