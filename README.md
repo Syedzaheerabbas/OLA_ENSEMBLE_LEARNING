@@ -134,7 +134,8 @@ Accurately predicting driver churn enables proactive retention, reduces recruitm
 
 ## PDF Report
 
-A detailed analysis report is available in the following PDF file: [View Report]().
+A detailed analysis report is available in the following PDF file: [View Report](ola_retention_project.pdf
+).
 
 ## 📬Contact
 For questions or collaboration, please reach out via
