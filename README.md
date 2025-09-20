@@ -9,7 +9,7 @@
 
 **Ola Cabs**, officially ANI Technologies, is an Indian multinational ride-hailing company founded in 2010 by Bhavish Aggarwal and Ankit Bhati. It operates a vast mobility platform that connects users with various transport options like cabs, auto-rickshaws, and bike taxis through its mobile app. Ola is one of India's largest mobility platforms and serves over 250 cities in India, Australia, New Zealand, and the UK. In addition to ride-hailing, Ola offers other services like food delivery and a financial services arm, providing a comprehensive range of mobility solutions. 
 
----
+
 ## Context & Business Problem 
 Driver retention is a critical challenge for ride-hailing platforms like Ola. High churn rates among drivers lead to increased recruitment costs, loss of trained manpower, and disruptions in service quality. Drivers can easily switch platforms based on fluctuating incentives, making it imperative for Ola to proactively identify at-risk drivers and take preventive action.
 
@@ -31,7 +31,7 @@ The dataset includes monthly information for a segment of drivers across 2019 an
 
 **Performance Metrics**: Quarterly ratings, monthly income, business acquired, driver grade
 
----
+
 ## Deliverables:
 
 A **binary classification model** that predicts driver attrition (Leave = 1, Stay = 0)
@@ -75,7 +75,7 @@ Derived a binary Churn target from Last_Working_Day (1 = left, 0 = stayed).
 - ROC–AUC: 0.95
 
 - F1 Score: Improved significantly after addressing class imbalance and threshold tuning.
----
+
 ## 🔍 Exploratory Insights
 
 **Income & Business Value**: Moderate negative correlation with churn—higher values reduce churn probability.
