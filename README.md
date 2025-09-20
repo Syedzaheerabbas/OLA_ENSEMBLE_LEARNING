@@ -48,32 +48,18 @@ The model will be evaluated using accuracy, precision, recall, F1-score, and ROC
 
 ---
 
-## 🔬 Methodology
+## ⚙️ Data Preparation
 
-### 1. Exploratory Data Analysis (EDA)
-- Identified skewness and outliers in numeric variables.
-- Detected important patterns between features and repayment behavior.
-- Handled missing values and ensured clean formatting.
+**Record Consolidation**: Merged multiple records per driver into a single driver-level row.
 
-### 2. Data Preprocessing
-- Encoded categorical variables.
-- Normalized numerical features.
-- Addressed data imbalance using:
-  - **SMOTE (Synthetic Minority Over-sampling Technique)**
-  - **Class Weighting**
+**Feature Engineering**:
 
-### 3. Model Building
-Built multiple Logistic Regression models:
-- Baseline Logistic Regression
-- Logistic Regression with Class Weights
-- Logistic Regression with SMOTE
-- SMOTE + Class Weights
-- Threshold-tuned model for best F1-score
-- Reglurazed model
+Created flag columns such as Quarterly_Raise and Income_Raise.
 
-### 4. Model Evaluation
-- Evaluated using **Confusion Matrix**, **F1-Score**, **Precision**, **Recall**, **ROC-AUC**, and **PR Curve**.
-- Tuned the classification threshold using F1 optimization to improve performance on minority class.
+Derived a binary Churn target from Last_Working_Day (1 = left, 0 = stayed).
+
+**Outlier Handling**: Avoided aggressive removal to prevent major data loss and feature distortion.
+
 
 ---
 
@@ -90,6 +76,16 @@ Built multiple Logistic Regression models:
 
 - F1 Score: Improved significantly after addressing class imbalance and threshold tuning.
 ---
+## 🔍 Exploratory Insights
+
+**Income & Business Value**: Moderate negative correlation with churn—higher values reduce churn probability.
+
+**Joining Designation**: Levels 1–3 show highest churn; 4–5 present moderate retention risk.
+
+**Income Raise**: No churn observed among drivers receiving raises, highlighting it as a strong retention lever.
+
+**Gender Imbalance**: Predominantly male driver base.
+
 
 ## Best Model & Key Predictors
 
